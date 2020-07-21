@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Splitter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        body:before{
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("https://res.cloudinary.com/greenbrier/image/upload/w_800/v1497880783/larabelt/production/images/uploads/p_explore/20170619095943-food-and-friends.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+        }
+        .submit-form
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            height: 600px;
+            padding: 80px 40px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,.5);
+            border:dashed;
+            border-color:darkblue;
+        }
+        .avatar {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            top: calc(-80px/2);
+            left: calc(50% - 40px);
+        }
+        .submit-form h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .submit-form p
+        {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .submit-form input
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .submit-form input[type="text"],
+        .submit-form input[type="password"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .submit-form input[type="submit"] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            border-radius: 25px;
+            width:43%;
+            border: none;
+            outline: none;
+            margin-top: 15%;
+        }
+        .submit-form input[type="reset"] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            border-radius: 25px;
+            width:43%;
+            margin-left: 10%;
+            border: none;
+            outline: none;
+            
+        }
+        .submit-form a
+        {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom:15%;
+        }
+        h4
+        {
+            margin-top:25%;
+            color: #fff;
+            font-style: italic;
+           
+        }
+        h5
+        {
+            color: #fff;
+            font-style: italic;
+        }
+        input[type="checkbox"] {
+            width: 20%;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <div class="submit-form">
+        <div >
+        <h2>splitter</h2>
+             <script>
+            //  var myData = localStorage['objectToPass'];
+              // Clear the localStorage
+            var name = localStorage.getItem('name');
+            var amount = localStorage.getItem('amount');
+            var person = localStorage.getItem('person');
+            var title= localStorage.getItem('title');
+            var y=amount/person;
+            var x=Math.round(y);
+            document.write("<span style=\"color: #fff;font-size: 1.00em; font-family:helvetica, sans-serif;\">Amount to be paid by each member to " + name + " is <\/span>");
+            document.write("<span style=\"color: #fff;font-size: 1.00em; font-family:helvetica, sans-serif;\">Rupees " + x + " only for " + title + " <\/span>");
+            
+            localStorage.removeItem('name');
+            localStorage.removeItem('amount');
+            localStorage.removeItem('person');
+            localStorage.removeItem('title');
+
+            </script>
+            <br>
+            
+            <h4><i class="fa fa-envelope" style="font-size:18px;color:aqua"></i> Share amount via E-mail : </h4>
+            <form action="mailto:someone@example.com?subject=REMINDER" method="post" enctype="text/plain">
+                <h5> Type Message :</h5>
+                <input type="text" name="Hi" size="50">
+                <div class="buttonSpace">
+                    <input type="submit" value="Share!" onsubmit="get()">
+                    <input type="reset" value="Reset!">
+                </div>
+            </form>
+        
+    </div>
+</body>
+</html>
