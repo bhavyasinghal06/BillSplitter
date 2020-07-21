@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Splitter</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        
+        body:before{
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("https://res.cloudinary.com/greenbrier/image/upload/w_800/v1497880783/larabelt/production/images/uploads/p_explore/20170619095943-food-and-friends.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+        }
+        .submit-form
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            height: 600px;
+            padding: 80px 40px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,.5);
+            border:dashed;
+            border-color:darkblue;
+        }
+        .avatar {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            top: calc(-80px/2);
+            left: calc(50% - 40px);
+        }
+        .submit-form h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .submit-form p
+        {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .submit-form input
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .submit-form input[type="text"],
+        .submit-form input[type="password"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .submit-form input[type="submit"] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            width: 43%;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-top: 15%;
+        }
+        .submit-form input[type="reset"] {
+            height: 30px;
+            color: #fff;
+            font-size: 15px;
+            background: red;
+            cursor: pointer;
+            width: 43%;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-left: 10%;
+        }
+        .submit-form a
+        {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        input[type="checkbox"] {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="submit-form" >
+        
+        <h2>splitter</h2> //method post will not work in github as database is not supported
+        <form name ="myForm" action="divide.html" method="get" onSubmit="get()">
+            <p>Split among?</p>
+            <input id="person_" type="number" name="person" placeholder="Number of members for splitting" required min="1">              
+            <p>Who have paid?</p>
+            <input id="name_" type="text" name="Name" placeholder="Enter name(first last name) of person who have paid" pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$" title="Name must be in form firstname lastname" required>
+            <p>Title </p>
+            <input id="title_" type="text" name="title" placeholder="Rent/Restaurant/others" required>   
+            <p>Amount</p>
+            <input id="amount_" type="number" name="amount" step="0.01" required min="1">
+            
+            <div class="buttonSpace">
+            <input type="submit" value="Split!" onsubmit="get()">
+            <input type="reset" value="Reset!">
+            </div>
+            <script>
+              
+
+                function get() {
+                
+                    localStorage.setItem('name', document.getElementById('name_').value);
+                    localStorage.setItem('amount', document.getElementById('amount_').value);
+                    localStorage.setItem('person', document.getElementById('person_').value);
+                    localStorage.setItem('title', document.getElementById('title_').value);
+                }
+            </script>
+
+
+        </form>
+        
+    </div>
+</body>
+</html>
